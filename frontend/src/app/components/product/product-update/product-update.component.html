@@ -1,0 +1,87 @@
+<mat-card>
+    <mat-card-title>Alterar Frete</mat-card-title>
+    <form>
+        <mat-card>
+            <mat-card-title>Informações do Produto</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%;">
+                    <input matInput placeholder="Nome" [(ngModel)]="produto.nome" maxlength="50" name="nome">
+                </mat-form-field>
+                <mat-form-field class="full-width-field">
+                    <input matInput placeholder="Descrição (Opcional)" [(ngModel)]="produto.descricao" maxlength="200" name="descricao">
+                </mat-form-field>
+                <mat-form-field style="width: 25%;">
+                    <input matInput placeholder="Cliente" [(ngModel)]="produto.cliente" maxlength="50" name="cliente" disabled>
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <mat-card-title>Endereço de Origem</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%; margin-right: 8px;">
+                    <input matInput placeholder="Logradouro" [(ngModel)]="produto.logradouro_origem" maxlength="100" name="logradouroOrigem">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Bairro" [(ngModel)]="produto.bairro_origem" maxlength="100" name="bairroOrigem">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Cidade" [(ngModel)]="produto.localidade_origem" maxlength="100" name="localidadeOrigem">
+                </mat-form-field>
+                <mat-form-field style="width: 2%; margin-right: 8px;">
+                    <input matInput placeholder="UF" [(ngModel)]="produto.uf_origem" maxlength="2" name="ufOrigem">
+                </mat-form-field>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput placeholder="Número" [(ngModel)]="produto.numero_origem" maxlength="5" name="numeroOrigem">
+                </mat-form-field>
+                <mat-form-field style="width: 12%; margin-right: 8px;">
+                    <input matInput placeholder="Complemento" [(ngModel)]="produto.complemento_origem" maxlength="25" name="complementoOrigem">
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <mat-card-title>Endereço de Destino</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%; margin-right: 8px;">
+                    <input matInput placeholder="Logradouro" [(ngModel)]="produto.logradouro_destino" maxlength="100" name="logradouroDestino">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Bairro" [(ngModel)]="produto.bairro_destino" maxlength="100" name="bairroDestino">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Cidade" [(ngModel)]="produto.localidade_destino" maxlength="100" name="localidadeDestino">
+                </mat-form-field>
+                <mat-form-field style="width: 2%; margin-right: 8px;">
+                    <input matInput placeholder="UF" [(ngModel)]="produto.uf_destino" maxlength="2" name="ufDestino">
+                </mat-form-field>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput placeholder="Número" [(ngModel)]="produto.numero_destino" maxlength="5" name="numeroDestino">
+                </mat-form-field>
+                <mat-form-field style="width: 12%; margin-right: 8px;">
+                    <input matInput placeholder="Complemento" [(ngModel)]="produto.complemento_destino" maxlength="25" name="complementoDestino">
+                </mat-form-field>
+            </div>
+        </mat-card>
+    </form>
+
+    <button [disabled]="!produto.nome || !produto.cliente || 
+        !produto.logradouro_origem || !produto.logradouro_destino ||
+        !produto.bairro_origem || !produto.bairro_destino ||
+        !produto.localidade_origem || !produto.localidade_destino ||
+        !produto.uf_origem || !produto.uf_destino ||
+        !produto.numero_origem || !produto.numero_destino"
+        mat-raised-button (click)="updateProduct()" color="primary" class="btn-salvar">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

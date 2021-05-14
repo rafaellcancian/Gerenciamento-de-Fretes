@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+}
+
+.view {
+    margin-right: 10px;
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+.view > i {
+    color: rgb(26, 134, 44);
+}
+
+.edit > i {
+    color: #d9cd26;
+}
+
+.delete > i {
+    color: #e35e6b;
+}

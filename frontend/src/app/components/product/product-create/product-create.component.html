@@ -1,0 +1,102 @@
+<mat-card>
+    <mat-card-title>Criar Frete</mat-card-title>
+    <form>
+        <mat-card>
+            <mat-card-title>Informações do Produto</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%;">
+                    <input matInput placeholder="Nome" [(ngModel)]="produto.nome" maxlength="50" name="nome">
+                </mat-form-field>
+                <mat-form-field class="full-width-field">
+                    <input matInput placeholder="Descrição (Opcional)" [(ngModel)]="produto.descricao" maxlength="200" name="descricao">
+                </mat-form-field>
+                <mat-form-field style="width: 25%;">
+                    <input matInput placeholder="Cliente" [(ngModel)]="produto.cliente" maxlength="50" name="cliente">
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <mat-card-title>Endereço de Origem</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput [textMask]="{mask: cepMask}" placeholder="CEP" [(ngModel)]="cepOrigem" name="cepOrigem">
+                </mat-form-field>
+                <button mat-mini-fab [disabled]="!cepOrigem" mat-raised-button (click)="buscarEnderecoOrigem()" color="primary" class="btn-buscar">
+                    <i class="material-icons">manage_search</i>
+                </button>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 25%; margin-right: 8px;">
+                    <input matInput placeholder="Logradouro" [value]="enderecoOrigem.logradouro" maxlength="100" name="logradouroOrigem" disabled>
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Bairro" [value]="enderecoOrigem.bairro" maxlength="100" name="bairroOrigem" disabled>
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Cidade" [value]="enderecoOrigem.localidade" maxlength="100" name="localidadeOrigem" disabled>
+                </mat-form-field>
+                <mat-form-field style="width: 2%; margin-right: 8px;">
+                    <input matInput placeholder="UF" [value]="enderecoOrigem.uf" maxlength="2" name="ufOrigem" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput placeholder="Número" [(ngModel)]="produto.numero_origem" maxlength="5" name="numeroOrigem">
+                </mat-form-field>
+                <mat-form-field style="width: 12%; margin-right: 8px;">
+                    <input matInput placeholder="Complemento" [(ngModel)]="produto.complemento_origem" maxlength="25" name="complementoOrigem">
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <mat-card-title>Endereço de Destino</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput [textMask]="{mask: cepMask}" placeholder="CEP" [(ngModel)]="cepDestino" name="cepDestino">
+                </mat-form-field>
+                <button mat-mini-fab [disabled]="!cepDestino" mat-raised-button (click)="buscarEnderecoDestino()" color="primary" class="btn-buscar">
+                    <i class="material-icons">manage_search</i>
+                </button>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 25%; margin-right: 8px;">
+                    <input matInput placeholder="Logradouro" [value]="enderecoDestino.logradouro" maxlength="100" name="logradouroDestino" disabled>
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Bairro" [value]="enderecoDestino.bairro" maxlength="100" name="bairroDestino" disabled>
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Cidade" [value]="enderecoDestino.localidade" maxlength="100" name="localidadeDestino" disabled>
+                </mat-form-field>
+                <mat-form-field style="width: 2%; margin-right: 8px;">
+                    <input matInput placeholder="UF" [value]="enderecoDestino.uf" maxlength="2" name="ufDestino" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput placeholder="Número" [(ngModel)]="produto.numero_destino" maxlength="5" name="numeroDestino">
+                </mat-form-field>
+                <mat-form-field style="width: 12%; margin-right: 8px;">
+                    <input matInput placeholder="Complemento" [(ngModel)]="produto.complemento_destino" maxlength="25" name="complementoDestino">
+                </mat-form-field>
+            </div>
+        </mat-card>
+    </form>
+
+    <button [disabled]="!produto.nome || !produto.cliente || 
+        !produto.numero_origem || !produto.numero_destino || !enderecoOrigem.uf || !enderecoDestino.uf" 
+        mat-raised-button (click)="createProduct()" color="primary" class="btn-salvar">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+

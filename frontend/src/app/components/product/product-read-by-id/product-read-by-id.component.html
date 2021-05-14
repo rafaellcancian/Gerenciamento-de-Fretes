@@ -1,0 +1,76 @@
+<mat-card>
+    <mat-card-title>Visualizar Frete</mat-card-title>
+    <form>
+        <mat-card>
+            <mat-card-title>Informações do Produto</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%;">
+                    <input matInput placeholder="Nome" [value]="produto.nome" name="nome" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field class="full-width-field">
+                    <input matInput placeholder="Descrição (Opcional)" [value]="produto.descricao" name="descricao" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 25%;">
+                    <input matInput placeholder="Cliente" [value]="produto.cliente" name="cliente" [readonly]="true">
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <mat-card-title>Endereço de Origem</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%; margin-right: 8px;">
+                    <input matInput placeholder="Logradouro" [value]="produto.logradouro_origem" name="logradouroOrigem" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Bairro" [value]="produto.bairro_origem" name="bairroOrigem" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Cidade" [value]="produto.localidade_origem" name="localidadeOrigem" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 2%; margin-right: 8px;">
+                    <input matInput placeholder="UF" [value]="produto.uf_origem" name="ufOrigem" [readonly]="true">
+                </mat-form-field>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput placeholder="Número" [value]="produto.numero_origem" name="numeroOrigem" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 12%; margin-right: 8px;">
+                    <input matInput placeholder="Complemento" [value]="produto.complemento_origem" name="complementoOrigem" [readonly]="true">
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <mat-card-title>Endereço de Destino</mat-card-title>
+            <div class="container"> 
+                <mat-form-field style="width: 25%; margin-right: 8px;">
+                    <input matInput placeholder="Logradouro" [value]="produto.logradouro_destino" name="logradouroDestino" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Bairro" [value]="produto.bairro_destino" name="bairroDestino" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 15%; margin-right: 8px;">
+                    <input matInput placeholder="Cidade" [value]="produto.localidade_destino" name="localidadeDestino" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 2%; margin-right: 8px;">
+                    <input matInput placeholder="UF" [value]="produto.uf_destino" name="ufDestino" [readonly]="true">
+                </mat-form-field>
+            </div>
+
+            <div class="container"> 
+                <mat-form-field style="width: 5%; margin-right: 8px;">
+                    <input matInput placeholder="Número" [value]="produto.numero_destino" name="numeroDestino" [readonly]="true">
+                </mat-form-field>
+                <mat-form-field style="width: 12%; margin-right: 8px;">
+                    <input matInput placeholder="Complemento" [value]="produto.complemento_destino" name="complementoDestino" [readonly]="true">
+                </mat-form-field>
+            </div>
+        </mat-card>
+    </form>
+    <button mat-raised-button (click)="voltar()">
+        Voltar
+    </button>
+</mat-card>
